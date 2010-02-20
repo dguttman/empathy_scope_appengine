@@ -39,7 +39,7 @@ AppEngine::Rack.configure_app(
     :version => "1")
     
 run lambda { |env| 
-  response = get_emotion_json(env["QUERY_STRING"][2..-1])
+  response = get_emotion_json(env["QUERY_STRING"].split("=")[1])
 
   status = 200
   content_type = {"Content-Type" => "text/plain"}
